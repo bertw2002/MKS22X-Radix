@@ -1,5 +1,5 @@
 public class MyLinkedList{
-  private Node<E> start, end;
+  private Node start, end;
   int size;
   //    not REQUIRED, but it would be crazy of you not to have this
   public String toString(){
@@ -32,7 +32,7 @@ public class MyLinkedList{
 
   //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
   public boolean add(E){
-    
+
   }
 
 
