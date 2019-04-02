@@ -1,5 +1,5 @@
-public class MyLinkedList{
-  private Node start, end;
+public class MyLinkedList<E>{
+  private Node<E> start, end;
   int size;
   //    not REQUIRED, but it would be crazy of you not to have this
   public String toString(){
@@ -31,7 +31,7 @@ public class MyLinkedList{
 
 
   //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
-  public void add(Integer element){
+  public void add(E element){
     if(size == 1) {
       end = new Node(element);
       start.setNext(end);
@@ -54,10 +54,21 @@ public class MyLinkedList{
         The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)
         This is how you will merge lists together for your radix sort.*/
   public void extend(MyLinkedList other){
-
+    if (size == 0) {
+      start = other.start;
+    }else{
+      end.setNext(other.start);
+    }
+    end = other.end;
+    other.start = null;
+    other.end = null;
+    //finally, add the size
+    size += other.size;
+    //set other size = 0
+    other.size = 0;
   }
   //remove the 1st element of the list, and return that value.
-  public Integer removeFront(){
+  public E removeFront(){
     Node newNode = start;
     start = start.next();
     size--;
