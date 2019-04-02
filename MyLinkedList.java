@@ -8,9 +8,9 @@ public class MyLinkedList{
     if (end == null){
       return str + "]";
     }
-    while (nodeIdx.getNext() != null){
-      str += nodeIdx.getData() + ",";
-      nodeIdx = nodeIdx.getNext();
+    while (nodeIdx.next() != null){
+      str += nodeIdx.getData() + ", ";
+      nodeIdx = nodeIdx.next();
     }
     str += nodeIdx.getData() + "]";
     return str;
@@ -31,20 +31,41 @@ public class MyLinkedList{
 
 
   //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
-  public boolean add(E){
-
+  public void add(Integer element){
+    if(size == 1) {
+      end = new Node(element);
+      start.setNext(end);
+    }
+    else if(size == 0) {
+      //sets start to the element, because nothing in it originally.
+      start = new Node(element);
+    }
+    else {
+      Node newNode = new Node(element);
+      end.setNext(newNode);
+      end = newNode;
+    }
+    //add 1 to size becuase all cases add the element.
+    size++;
   }
 
 
   /*       in O(1) time, connect the other list to the end of this list.
         The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)
         This is how you will merge lists together for your radix sort.*/
-  public void extend(MyLinkedList<E> other){
+  public void extend(MyLinkedList other){
 
   }
   //remove the 1st element of the list, and return that value.
-  public E removeFront(){
-
+  public Integer removeFront(){
+    Node newNode = start;
+    start = start.next();
+    size--;
+    //if no more elements, remember to set end to null.
+    if (size == 0){
+      end = null;
+    }
+    return newNode.getData();
   }
 
 }

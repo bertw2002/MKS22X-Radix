@@ -1,5 +1,5 @@
 public class Node{
-  private Integer data;
+  private E data;
   private Node next,prev;
   public Node(int data, Node next, Node prev){
     this.data = data;
@@ -22,7 +22,7 @@ public class Node{
   public void setPrev(Node prevtwo){
     prev = prevtwo;
   }
-  public Integer getData(){
+  public E getData(){
     return data;
   }
   public void setData(Integer datatwo){
