@@ -48,7 +48,9 @@ public class MyLinkedList<E>{
     //add 1 to size becuase all cases add the element.
     size++;
   }
-
+  public int size(){
+    return size;
+  }
 
   /*       in O(1) time, connect the other list to the end of this list.
         The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)
@@ -78,5 +80,4 @@ public class MyLinkedList<E>{
     }
     return newNode.getData();
   }
-
 }

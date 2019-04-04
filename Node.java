@@ -15,6 +15,7 @@ public class Node<E>{
   public Node<E> prev(){
     return prev;
   }
+  
   public void setNext(Node<E> nexttwo){
     next = nexttwo;
   }
